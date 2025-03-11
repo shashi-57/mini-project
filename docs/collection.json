@@ -1,0 +1,1539 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Expense Tracker API",
+        "_postman_id": "97b4b051-fc54-4112-b07a-85755912bfdf",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get token",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/auth\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"example@email.com\",\n    \"password\": \"123456\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Refresh token",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/auth\/refresh",
+                            "query": []
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Register user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/auth\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"ipsum\",\n    \"email\": \"non\",\n    \"password\": \"nostrum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Logout user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get authenticated user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user\/profile",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Charts",
+            "description": "",
+            "item": [
+                {
+                    "name": "Income expense categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/category",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Month wise",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/month-wise",
+                            "query": [
+                                {
+                                    "key": "month",
+                                    "value": "6",
+                                    "description": "Number of month to get data (default: 12)",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Month and category wise",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/chart\/income-expense\/category-wise",
+                            "query": [
+                                {
+                                    "key": "month",
+                                    "value": "6",
+                                    "description": "Number of month to get data (default: 12)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "6",
+                                    "description": "Category id to get data",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Currency",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get currencies",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/currency",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update currency",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/currency\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "id",
+                                    "description": "User id of whom to update currency"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"currency_id\": 18\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expense",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense",
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Rows per page (default: 10)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_col",
+                                    "value": "created_at",
+                                    "description": "Column name to sort (default: id)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "desc",
+                                    "description": "Column sort order (asc\\|desc)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_col",
+                                    "value": "category_name",
+                                    "description": "Column name to search",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_by",
+                                    "value": "Lent",
+                                    "description": "Text to search for",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store expense",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"expense_date\": \"2020-03-30 21:08:36\",\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"spent_on\": \"Breakfast\",\n    \"remarks\": \"Coffee and toast\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Summary of expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show expense",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Expense id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update expense",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Expense id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"spent_on\": \"Breakfast\",\n    \"remarks\": \"Coffee and toast\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete expense",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Expense id to delete"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expense Category",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get expense categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/category",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store expense category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/category",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category_name\": \"Shopping\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show a category info",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update a category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category_name\": \"Travel\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete a category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/expense\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to delete"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Income",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income",
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "10",
+                                    "description": "Rows per page (default: 10)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_col",
+                                    "value": "created_at",
+                                    "description": "Column name to sort (default: id)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "desc",
+                                    "description": "Column sort order (asc\\|desc)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_col",
+                                    "value": "category_name",
+                                    "description": "Column name to search",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "search_by",
+                                    "value": "Salary",
+                                    "description": "Text to search for",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"income_date\": \"2020-03-30 21:08:36\",\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"source\": \"Salary\",\n    \"notes\": \"Through bank\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Summary of incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"income_date\": \"2020-03-30 21:08:36\",\n    \"category_id\": 1,\n    \"amount\": 100,\n    \"source\": \"Business\",\n    \"notes\": \"Cash\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete income",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Income id to delete"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Income Category",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get income categories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/category",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store income category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/category",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category_name\": \"Salary\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show a category info",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update a category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category_name\": \"Profit\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete a category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/income\/category\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "Category id to delete"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Summary",
+            "description": "",
+            "item": [
+                {
+                    "name": "Current & last month expenses",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/expense\/months\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Current & last month incomes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/income\/months\/summary",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all transactions",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/report\/transaction",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update password",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user\/password",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"old_password\": \"123456\",\n    \"new_password\": \"234567\",\n    \"confirm_password\": \"234567\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update logged in user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user\/update",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Triss\",\n    \"email\": \"tiss@email.com\",\n    \"currency_id\": 13\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show a user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "User id to show"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "expense-manager-back.local",
+                            "path": "api\/v1\/user\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "User id to update"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Ciri\",\n    \"email\": \"cir@email.com\",\n    \"currency_id\": 1\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
