@@ -1,0 +1,63 @@
+/* Dashboard.css */
+
+/* Container for Budget and Goal */
+.dashboard-goals-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Budget Section */
+  .budget-container {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .budget-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .budget-container .budget-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2ecc71;
+  }
+  
+  /* Goal Section */
+  .goal-container {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+  }
+  
+  .goal-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .goal-container .goal-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-goals-container {
+      flex-direction: column;
+    }
+  
+    .budget-container, .goal-container {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+  
